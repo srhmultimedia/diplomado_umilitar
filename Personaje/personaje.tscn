@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://p4gj7h310bls"]
+
+[ext_resource type="Texture2D" uid="uid://jc1n0gbie3tf" path="res://kenney/PNG/Soldier/Poses/soldier_walk1.png" id="1_komkr"]
+[ext_resource type="Script" path="res://Personaje/personaje.gd" id="1_tvt6c"]
+[ext_resource type="Texture2D" uid="uid://cfb8ew2av381d" path="res://kenney/PNG/Soldier/Poses/soldier_idle.png" id="1_xylse"]
+[ext_resource type="Texture2D" uid="uid://clcg4wdlo5afh" path="res://kenney/PNG/Soldier/Poses/soldier_walk2.png" id="2_8oo7s"]
+[ext_resource type="Texture2D" uid="uid://c180x1cr1rkjl" path="res://kenney/PNG/Soldier/Poses/soldier_jump.png" id="4_tr0tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vla6a"]
+size = Vector2(71, 89)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvhjg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xylse")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xylse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tr0tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tr0tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tr0tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_xylse")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8oo7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_komkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8oo7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_komkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8oo7s")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Personaje" type="CharacterBody2D"]
+script = ExtResource("1_tvt6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 10.5)
+shape = SubResource("RectangleShape2D_vla6a")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lvhjg")
+animation = &"walk"
+
+[node name="Camera2D" type="Camera2D" parent="."]

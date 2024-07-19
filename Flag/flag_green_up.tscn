@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1aw8fove81wp"]
+
+[ext_resource type="Texture2D" uid="uid://bxccoroblf3q7" path="res://kenney/PNG/Other/flagGreen_up.png" id="1_5kcof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u01m7"]
+size = Vector2(62, 63)
+
+[node name="FlagGreenUp" type="Sprite2D"]
+position = Vector2(30, 31)
+texture = ExtResource("1_5kcof")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_u01m7")
